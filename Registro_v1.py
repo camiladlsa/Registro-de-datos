@@ -16,7 +16,7 @@ def ID_Exist(C):
 
 while (True):
     ID = input("\nCédula: ")
-    Name = input("\nNombre: ")
+    Name = input("\nNombres: ")
     LastName = input("\nApellidos: ")
     Age = input("\nEdad: ")
     
