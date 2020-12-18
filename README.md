@@ -12,6 +12,4 @@ How-to on needed packages to run code in MacOs: [https://github.com/camiladlsa/P
 
 4. After you have cloned the repo type in the _Terminal_: python3 PAP.py 
 
-**MAKE SURE YOU HAVE CHANGED THE DIRECTORY TO WHERE THE REPO HAS BEEN CLONED, OTHERWISE THERE WILL BE A FILE LOCATION ERROR**
-
 5. Program should run. 
