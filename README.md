@@ -1,4 +1,4 @@
-# REGISTRO DE DATOS | EXPORTAR CSV
+# REGISTRO DE DATOS | EXPORT TO CSV
 
 How-to on needed packages to run code in MacOs: [https://github.com/camiladlsa/PROG2TAR1.git]
 
