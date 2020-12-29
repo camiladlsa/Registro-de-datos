@@ -1,6 +1,5 @@
 import os
 import sys
-import getpass
 
 if(len(sys.argv) == 1):
     print("\n¡No se encontraron argumentos!\n\nSaliendo del programa...\n")
@@ -8,7 +7,7 @@ if(len(sys.argv) == 1):
 
 if (os.path.exists(sys.argv[1]) == False):
     with open(sys.argv[1], "w+") as creator:
-        creator.write("Cédula,Nombres,Apellidos,Edad,Ahorros,contraseña\n")
+        creator.write("Cédula,Nombres,Apellidos,Edad\n")
 
 def ID_Exist(C):
     with open(sys.argv[1], "r") as reader:
@@ -34,70 +33,18 @@ def Find():
 
 	return Found, FindID
 
-def HasDigits(string):
-    return any(char.isdigit() for char in string)
-
-def F_ID():
-    while True:
-        try:
-            ID = int(input("\nCédula: "))
-            break
-        except:
-            print("\n¡Favor ingresar un entero!")
-    return str(ID)
-
-def F_Name():
-    Name = input("\nNombres: ")
-    while HasDigits(Name):
-        print("\nEl nombre solo debe contener letras.\n\nFavor intente nuevamente.")
-        Name = input("\nNombres: ")
-    return Name
-
-def F_LastName():
-    LastName = input("\nApellidos: ")
-    while HasDigits(LastName):
-        print("\nEl apellido solo debe contener letras.\n\nFavor intente nuevamente.")
-        LastName = input("\nApellidos: ")
-    return LastName
-
-def F_Age():
-    while True:
-        try:
-            Age = int(input("\nEdad: "))
-            break
-        except:
-            print("\n¡Favor ingresar un entero!") 
-    return str(Age)
-
-def F_Savings():
-    while True:
-        try:
-            Savings = float(input("\nAhorros: "))
-            break
-        except:
-            print("\n¡Favor ingresar valor decimal!")
-    return str(Savings)
-
-def F_Password():
-    Password = (getpass.getpass("\nIngrese su contraseña: "))
-    PasswordConfirm = (getpass.getpass("\nConfirme su contraseña: "))
-        while(Password != PasswordConfirm)
-            print("\n¡Las contraseñas no coinciden!\n")
-            Password = (getpass.getpass("\nIngrese su contraseña: "))
-            PasswordConfirm = (getpass.getpass("\nConfirme su contraseña: "))
-            continue
-        return Password 
-
 while (True):
     Menu = input("\nCapturar (C) | Listar (L) | Buscar (B) | Editar (E) | Eliminar (X) | Salir (S) ----> ").upper()
     if(Menu == "C"):
         while(True):
-            ID = F_ID()
-            Name = F_Name()
-            LastName = F_LastName()
-            Age = F_Age()
-            Savings = F_Savings()
-            Password = F_Password()
+            ID = input("\nCédula: ")
+            Name = input("\nNombres: ")
+            LastName = input("\nApellidos: ")
+            Age = input("\nEdad: ")
+            
+            if(ID == "" and Name == "" and LastName == "" and Age == ""):
+                print("\nError: ¡Ningún dato ingresado!.\n\nSaliendo del programa...")
+                break    
 
             if(ID_Exist(ID)):
                 print("\n¡Cédula existente!\n\nFavor ingresar cédula correcta...\n")
@@ -111,7 +58,7 @@ while (True):
                         Grabar = input("\nGrabar: (Y/N) --> ").upper()
                         if(Grabar == "Y"):
                             with open(sys.argv[1], "a") as writer:
-                                writer.write(ID + "," + Name + "," + LastName + "," + Age + "," + Savings "," + Password + "\n")
+                                writer.write(ID + "," + Name + "," + LastName + "," + Age + "\n")
                         elif(Grabar == "N"):
                             continue
                     elif(Option == "S"):
@@ -143,14 +90,11 @@ while (True):
     	while(True):
 
     		print("Favor ingresar los nuevos datos:")
-    		NewID = F_ID()
-    		NewName = F_Name()
-    		NewLastName = F_LastName()
-    		NewAge = F_Age()
-            NewSavings = F_Savings()
-            NewPassword = F_Password()
-
-    		NewVals = NewID + "," + NewName + "," + NewLastName + "," + NewAge + "," + NewSavings "," + NewPassword + "\n"
+    		NewID = input("\nCédula: ")
+    		NewName = input("\nNombres: ")
+    		NewLastName = input("\nApellidos: ")
+    		NewAge = input("\nEdad: ")
+    		NewVals = NewID + "," + NewName + "," + NewLastName + "," + NewAge + "\n"
 
     		if(NewID == "" and NewName == "" and NewLastName == "" and NewAge == ""):
     			print("\nError: ¡Ningún dato ingresado!.\n")
@@ -205,8 +149,3 @@ while (True):
     else:
         print("\nLa opción ingresada no es válida.\n\nFavor intente nuevamente...")
         continue
-
-
-
-
-        
