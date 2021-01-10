@@ -233,7 +233,7 @@ def F_Encode():
 		try:
 			print("\nGrado académico: ")
 			Degree = ReadChar().upper()
-			if Degree in ["N", "B", "G", "P" , "D"]:
+			if Degree in ["I", "M", "G", "P"]:
 				break
 			else:
 				print("\n¡Debe ingresar un caracter válido!")
